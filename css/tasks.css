@@ -1,0 +1,547 @@
+body {
+  background-image: url('../img/bg2.jpg');
+  background-attachment: fixed;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  font-family: 'Spectral SC', serif;
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#blurbg {
+  background-image: url('../img/bg2.jpg');
+  background-attachment: fixed;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  filter: blur(15px);
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  animation-name: fade;
+  animation-duration: 0.5s;
+  transition: 0.5s;
+  z-index: 4;
+}
+
+#blurbg.active {
+  background-image: url('../img/bg2.jpg');
+  visibility: visible;
+  opacity: 1;
+  z-index: 4;
+  animation-duration: 0.5s;
+  transition: 0.5s;
+}
+
+.searchbox {
+  display: inline-flex;
+  position: fixed;
+  flex-direction: column;
+  right: 25px;
+  top: 25px;
+  z-index: 3;
+}
+
+.searchbox input {
+  height: 32px;
+  width: 250px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background-color: #fff;
+  outline: none;
+  font-family: 'Spectral SC', serif;
+  font-size: 20px;
+}
+
+.searchbox h2 {
+  display: inline;
+  position: relative;
+  top: 30%;
+}
+
+/*TASKBOARD HEADER*/
+
+#header {
+  display: flex;
+  position: fixed;
+  left: 15vw;
+  width: 65vw;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
+
+#header h1 {
+  padding-right: 75px;
+  font-family: 'Spectral SC', serif;
+  font-size: 46px;
+  font-stretch: ultra-expanded;
+}
+
+#header.passive {
+  display: none;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+
+
+h2 {
+  font-family: 'Spectral SC', serif;
+}
+
+/*THE TASKBOARD*/
+
+#alltasks {
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  font-family: 'Spectral SC', serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  top: 5vh;
+  left: 43vw;
+  z-index: 2;
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
+
+#alltasks.passive {
+  display: none;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+#alltasks h1 {
+  margin-bottom: 15vh;
+}
+
+.taskboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 75vw;
+  position: absolute;
+  top: 20vh;
+  margin-left: 5vw;
+  /* border: 2px solid black; */
+  /* border-collapse: collapse; */
+  /* box-shadow: 0 0 10px 10px #000000; */
+  z-index: 2;
+}
+
+#newtaskcontainerheader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#newtaskcontainerheader h2 {
+  position: fixed;
+  top: 115px;
+  font-size: 43px;
+}
+
+.newtaskcontainer {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  width: 24vw;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 25px;
+  background-size: cover;
+  backdrop-filter: invert(0.7);
+  box-shadow: 1px -1px 15px 5px #a62139;
+  height: 70vh;
+  overflow-y: auto;
+  border-radius: 4px;
+  scroll-behavior: smooth;
+}
+
+.newtaskcontainer::-webkit-scrollbar {
+  width: 25px;
+}
+
+.newtaskcontainer::-webkit-scrollbar-thumb {
+  background: #a62139;
+  border-radius: 5px;
+}
+
+#inprogcontainerheader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#inprogcontainerheader h2 {
+  position: fixed;
+  top: 115px;
+  font-size: 43px;
+}
+
+.inprogcontainer {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  width: 24vw;
+  height: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 25px;
+  background-size: cover;
+  backdrop-filter: hue-rotate(120deg);
+  box-shadow: 0 0 15px 6px #3a1ea8;
+  height: 70vh;
+  overflow-y: auto;
+  border-radius: 4px;
+  scroll-behavior: smooth;
+}
+
+.inprogcontainer::-webkit-scrollbar {
+  width: 25px;
+}
+
+.inprogcontainer::-webkit-scrollbar-thumb {
+  background: #280c96;
+  border-radius: 5px;
+}
+
+#donecontainerheader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#donecontainerheader h2 {
+  position: fixed;
+  top: 115px;
+  font-size: 43px;
+}
+
+.donecontainer {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  width: 24vw;
+  height: auto;
+  padding-top: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-size: cover;
+  backdrop-filter: saturate(10%);
+  box-shadow: 0px -1px 15px 5px #000000;
+  height: 70vh;
+  overflow-y: auto;
+  border-radius: 4px;
+  scroll-behavior: smooth;
+}
+
+.donecontainer::-webkit-scrollbar {
+  width: 25px;
+}
+
+.donecontainer::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+  border-radius: 5px;
+}
+
+/*TASKCARDS*/
+
+.newtaskcard {
+  width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  background-color: #f5fffa;
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
+  background-size: cover;
+  cursor: pointer;
+  box-shadow: 1px -1px 15px 2px red;
+  opacity: 1;
+}
+
+.progrtask {
+  width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  background-color: #f5fffa;
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
+  box-shadow: 1px -1px 10px 3px #00008b;
+}
+
+.donetask {
+  width: 300px;
+  height: auto;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  background-color: #f5fffa;
+  margin-top: 20px;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
+  background-size: cover;
+  cursor: pointer;
+  box-shadow: 1px -1px 15px 5px #000000;
+}
+
+.hold {	
+
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.hovered {
+	
+  background-color: red;
+  opacity: 0.1;
+  border-color: red;
+}
+
+label.tpriority {
+  float: right;
+  margin-right: 10px;
+}
+
+label.date {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+#editdelete {
+  display: flex;
+}
+
+#deltask {
+  position: relative;
+  left: 0px;
+}
+
+#edtask {
+  position: relative;
+  left: 250px;
+}
+
+.description {
+  width: 30%;
+  font-weight: bolder;
+  font-size: 24px;
+  font-family: 'Spectral SC', serif;
+}
+
+#b2proj {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100px;
+  height: 50px;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+  position: fixed;
+  left: 2vw;
+  top: 3vh;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#newtaskbox {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 800px;
+  font-family: 'Spectral SC', serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-stretch: ultra-expanded;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  border-radius: 5px;
+  opacity: 0;
+  right: 20vw;
+  top: 52vh;
+  animation-duration: 0.25s;
+  transition: 0.25s;
+  z-index: 6;
+}
+
+#newtaskbox.active {
+  visibility: visible;
+  opacity: 1;
+  filter: none;
+  z-index: 6;
+  animation-duration: 0.5s;
+  transition: 0.5s;
+}
+
+#taskname input {
+  width: 80%;
+  margin-top: 20px;
+}
+
+#projdes label {
+  width: 80%;
+}
+
+#projdes textarea {
+  width: 80%;
+  height: 300px;
+  font-family: 'Spectral SC', serif;
+  font-size: 19px;
+  border: 1px;
+  border-radius: 3px;
+  margin-top: 15px;
+  background-color: #f5fffa;
+  outline: none;
+  border: 2px solid black;
+}
+
+input {
+  width: 75%;
+  height: 36px;
+  font-family: 'Spectral SC', serif;
+  font-size: 19px;
+  border: 1px;
+  border-radius: 3px;
+  background-color: #f5fffa;
+  outline: none;
+  border: 2px solid black;
+}
+
+#addtask {
+  width: 320px;
+  height: 75px;
+  background-color: #f5fffa;
+  outline: none;
+  border: 2px solid black;
+  font-family: 'Spectral SC', serif;
+  font-size: 32px;
+  margin-top: -10px;
+  position: absolute;
+  right: 2vw;
+  bottom: 3vh;
+}
+
+#prio {
+  margin-left: 58px;
+  color: black;
+  font-weight: bolder;
+  font-size: 24px;
+}
+
+#priority {
+  margin-left: 175px;
+  font-family: 'Spectral SC', serif;
+  font-size: 18px;
+}
+
+.back2work {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 120px;
+  height: 75px;
+  text-decoration: none;
+  background-color: #f5fffa;
+  outline: none;
+  border: 2px solid black;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  bottom: 3vh;
+  left: 2vw;
+  z-index: 2;
+}
+
+.newproj2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 220px;
+  height: 60px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: black;
+  color: #f5fffa;
+  border-radius: 5px;
+  position: fixed;
+  top: 90vh;
+  right: 1vw;
+  font-size: 12px;
+  z-index: 2;
+}
+
+.newtask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 180px;
+  height: 100px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: black;
+  color: #f5fffa;
+  border-radius: 5px;
+  position: fixed;
+  top: 70vh;
+  right: 2vw;
+  text-align: center;
+  font-size: 12px;
+  z-index: 2;
+}
+
+.exportask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 180px;
+  height: 100px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background-color: black;
+  color: #f5fffa;
+  border-radius: 5px;
+  position: fixed;
+  top: 85vh;
+  right: 2vw;
+  font-size: 12px;
+  z-index: 2;
+}
